@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="catGameStyleSheet.css">
+</head>
+
+<body><br><br><br>
+    <button id = 'btn8' class = 'levelBtn difBtnEasy' onclick="easy()">EASY</button>
+    <button id = 'btn7' class = 'levelBtn difBtnHard' onclick="hard()">HARD</button>
+    <button id = 'btn6' class = 'levelBtn difBtn' onclick="normal()">NORMAL</button>
+    <button id = 'btn5' class = 'levelBtn' onclick="reStart5()">START</button>
+    <button id = 'btn4' class = 'levelBtn' onclick="reStart4()">START</button>
+    <button id = 'btn3' class = 'levelBtn' onclick="reStart3()">START</button>
+    <button id = 'btn2' class = 'levelBtn' onclick="reStart2()">START</button>
+    <button id = 'btn1' class = 'levelBtn' onclick="reStart1()">START</button>
+    <button id = 'btn0' class = 'levelBtn' onclick="startFunction()">START</button>
+    <canvas id="myCanvas" onmousemove="mouseDet(event)" onmouseclick="mouseDet(event)" onkeydown="myArrowFunction(event)" width="900" height="600"></canvas>
+    
+    
+    <script>
+
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        canvas.tabIndex = 1000;
+
+        //describe and initialize variables
+        //x1, y1, r1 - location
+        //y01 - varying cat y-value
+        //dr1, ir1 - growing hole speed and initial radius
+        //dy1, ya1, xa1 - speed of cat-y and cat systym x,y
+        //ind1, ind11, indTimer, indTimerMax1 - target click indicator and timer
+        //timerU1, timerUp1, timerD1, timeDown1 - timertimers up/down 
+        var x1, y1, r1, y01, dr1, ir1, dy1, ya1, xa1, ind1, ind11, indTimer1, indTimerMax1, timerU1, timerUp1, timerD1, timeDown1
+        var x2, y2, r2, y02, dr2, ir2, dy2, ya2, xa2, ind2, ind22, indTimer2, indTimerMax2, timerU2, timerUp2, timerD2, timeDown2
+        var x3, y3, r3, y03, dr3, ir3, dy3, ya3, xa3, ind3, ind33, indTimer3, indTimerMax3, timerU3, timerUp3, timerD3, timeDown3
+        var x4, y4, r4, y04, dr4, ir4, dy4, ya4, xa4, ind4, ind44, indTimer4, indTimerMax4, timerU4, timerUp4, timerD4, timeDown4
+        var x5, y5, r5, y05, dr5, ir5, dy5, ya5, xa5, ind5, ind55, indTimer5, indTimerMax5, timerU5, timerUp5, timerD5, timeDown5
+        var x6, y6, r6, y06, dr6, ir6, dy6, ya6, xa6, ind6, ind66, indTimer6, indTimerMax6, timerU6, timerUp6, timerD6, timeDown6
+        var x7, y7, r7, y07, dr7, ir7, dy7, ya7, xa7, ind7, ind77, indTimer7, indTimerMax7, timerU7, timerUp7, timerD7, timeDown7
+        var x8, y8, r8, y08, dr8, ir8, dy8, ya8, xa8, ind8, ind88, indTimer8, indTimerMax8, timerU8, timerUp8, timerD8, timeDown8
+        var Gcount, Bcount, missCount, level, lives, levelInd, lifeInd, ua, ub, da, db, dya, dyb, uya, uyb, difficulty, xPos, yPos
+
+        //replace level difficulty with start button
+        function replaceDiffBut(){
+            document.getElementById('btn6').style.display = 'none';
+            document.getElementById('btn7').style.display = 'none';
+            document.getElementById('btn8').style.display = 'none';
+            document.getElementById('btn0').style.display = 'inline-block';
+        }
+
+        //level difficulty functions
+        function easy(){
+            ua = 800;
+            ub = 400;
+            da = 800;
+            db = 400;
+            dya = 2;
+            dyb = 1;
+            uya = 2;
+            uyb = 0.2;
+            replaceDiffBut()
+            difficulty=1;
+        };
+        function normal(){
+            ua = 800;
+            ub = 0;
+            da = 800;
+            db = 0;
+            dya = 8;
+            dyb = 3;
+            uya = 4;
+            uyb = 0.2;
+            replaceDiffBut()
+            difficulty=2;
+        };
+        function hard(){
+            ua = 400;
+            ub = 0;
+            da = 400;
+            db = 0;
+            dya = 8;
+            dyb = 3;
+            uya = 8;
+            uyb = 1;
+            replaceDiffBut()
+            difficulty=3;
+        };
+
+        //hit and miss indicator and counter
+        function mouseDet(event) {
+            xPos = event.offsetX;
+            yPos = event.offsetY;
+            
+            if(yPos > y01-(32/40*r1) && yPos <y1+(47/40*r1) && xPos > x1-r1 && xPos < x1+r1){
+                Gcount+=1;
+                ind1=1;
+                ind11=1;
+            }
+            else if(yPos > y02-(32/40*r2) && yPos <y2+(47/40*r2) && xPos > x2-r2 && xPos < x2+r2){
+                Gcount+=1;
+                ind2=1;
+                ind22=1;
+            }
+            else if(yPos > y03-(32/40*r3) && yPos <y3+(47/40*r3) && xPos > x3-r3 && xPos < x3+r3){
+                Gcount+=1;
+                ind3=1;
+                ind33=1;
+            }
+            else if(yPos > y04-(32/40*r4) && yPos <y4+(47/40*r4) && xPos > x4-r4 && xPos < x4+r4){
+                Gcount+=1;
+                ind4=1;
+                ind44=1;
+            } 
+            else if(yPos > y05-(32/40*r5) && yPos <y5+(47/40*r5) && xPos > x5-r5 && xPos < x5+r5){
+                Gcount+=1;
+                ind5=1;
+                ind55=1;
+            }   
+            else if(yPos > y06-(32/40*r6) && yPos <y6+(47/40*r6) && xPos > x6-r6 && xPos < x6+r6){
+                Gcount+=1;
+                ind6=1;
+                ind66=1;
+            }      
+            else if(yPos > y07-(32/40*r7) && yPos <y7+(47/40*r7) && xPos > x7-r7 && xPos < x7+r7){
+                Gcount+=1;
+                ind7=1;
+                ind77=1;
+            } 
+            else if(yPos > y08-(32/40*r8) && yPos <y8+(47/40*r8) && xPos > x8-r8 && xPos < x8+r8){
+                Gcount+=1;
+                ind8=1;
+                ind88=1;
+            }   
+            else{
+                Bcount+=1;
+            }
+        };
+
+        //movement with keys for level 5
+        function myArrowFunction(){
+            z = event.which || event.keyCode;
+            if(z==37){
+                x1-=10;
+            }
+            if(z==38){
+                y1-=10;
+                y01-=10;
+            }
+            if(z==39){
+                x1+=10;
+            }
+            if(z==40){
+                y1+=10;
+                y01+=10;
+            }
+        };
+
+        function resetPar(){
+             dr1=dr2=dr3=dr4=dr5=dr6=dr7=dr8=0.7;
+             ir1=ir2=ir3=ir4=ir5=ir6=ir7=ir8=0;
+             ind1,ind2,ind3,ind4,ind5,ind6,ind7,ind8=0;
+             ind11,ind22,ind33,ind44,ind55,ind66,ind77,ind88=0;
+             indTimer1=indTimer2=indTimer3=indTimer4=indTimer5=indTimer6=indTimer7=indTimer8=0;
+             indTimerMax1=indTimerMax2=indTimerMax3=indTimerMax4=indTimerMax5=indTimerMax6=indTimerMax7=indTimerMax8=40;
+             timerU1=timerU2=timerU3=timerU4=timerU5=timerU6=timerU7=timerU8=0;
+             timeUp1=timeUp2=timeUp3=timeUp4=timeUp5=timeUp6=timeUp7=timeUp8=300;
+             timerD1=timerD2=timerD3=timerD4=timerD5=timerD6=timerD7=timerD8=0;
+             timeDown1=timeDown2=timeDown3=timeDown4=timeDown5=timeDown6=timeDown7=timeDown8=200;
+        };
+
+        function resetPar1(){
+             resetPar()
+             dy1=dy2=dy3=dy4=dy5=dy6=-1;
+             ya1=ya2=ya3=ya4=ya5=ya6=0.5;
+             xa1=xa2=xa3=xa4=xa5=xa6=0.5;
+
+             x1=450;
+             y1=70;
+             r1=(Math.pow(y1,0.5))*2;
+             y01=y1+(105/40*r1);
+             x2=200;
+             y2=150;
+             r2=(Math.pow(y2,0.5))*2;
+             y02=y2+(105/40*r2);
+             x3=600;
+             y3=400;
+             r3=(Math.pow(y3,0.5))*2;
+             y03=y3+(105/40*r3);
+             x4=750;
+             y4=100;
+             r4=(Math.pow(y4,0.5))*2;
+             y04=y4+(105/40*r4);
+             x5=150;
+             y5=400;
+             r5=(Math.pow(y5,0.5))*2;
+             y05=y5+(105/40*r5);
+             x6=425;
+             y6=225;
+             r6=(Math.pow(y6,0.5))*2;
+             y06=y6+(105/40*r6);
+        };
+        function resetPar2(){
+             resetPar()
+             dy1=dy2=dy3=dy4=dy5=dy6=-1;
+             ya1=ya2=ya3=ya4=ya5=ya6=0.5;
+             xa1=xa2=xa3=xa4=xa5=xa6=0.5;
+
+             x1=(Math.random()*400)+450;
+             y1=(Math.random()*70)+30;
+             r1=(Math.pow(y1,0.5))*2;
+             y01=y1+(105/40*r1);
+             x2=(Math.random()*400)+450;
+             y2=(Math.random()*70)+180;
+             r2=(Math.pow(y2,0.5))*2;
+             y02=y2+(105/40*r2);
+             x3=(Math.random()*820)+40;
+             y3=(Math.random()*70)+30;
+             r3=(Math.pow(y3,0.5))*2;
+             y03=y3+(105/40*r3);
+             x4=(Math.random()*780)+60;
+             y4=(Math.random()*70)+180;
+             r4=(Math.pow(y4,0.5))*2;
+             y04=y4+(105/40*r4);
+             x5=(Math.random()*740)+80;
+             y5=(Math.random()*220)+30;
+             r5=(Math.pow(y5,0.5))*2;
+             y05=y5+(105/40*r5);
+             x6=(Math.random()*740)+80;
+             y6=(Math.random()*470)+30;
+             r6=(Math.pow(y6,0.5))*2;
+             y06=y6+(105/40*r6);
+        };
+        function resetPar3(){
+             resetPar()
+             dy1=dy2=dy3=dy4=dy5=dy6=-1;
+             xa1=xa2=xa3=xa4=xa5=xa6=0.5;
+
+             x1=-150;
+             y1=30;
+             r1=(Math.random()*15)+10;
+             y01=y1+(105/40*r1);
+             ya1=0.2;
+             x2=-150;
+             y2=80;
+             r2=(Math.random()*15)+10;
+             y02=y2+(105/40*r2);
+             ya2=0.1;
+             x3=-150;
+             y3=140;
+             r3=(Math.random()*15)+10;
+             y03=y3+(105/40*r3);
+             ya3=0.05;
+             x4=-150;
+             y4=210;
+             r4=(Math.random()*15)+10;
+             y04=y4+(105/40*r4);
+             ya4=-0.05;
+             x5=1050;
+             y5=290;
+             r5=(Math.random()*15)+10;
+             y05=y5+(105/40*r5);
+             ya5=-0.1;
+             x6=-150;
+             y6=400;
+             r6=(Math.random()*15)+10;
+             y06=y6+(105/40*r6);
+             ya6=-0.2;
+        };
+        function resetPar4(){
+             resetPar()
+             dy1=dy2=dy3=dy4=dy5=dy6=-1;
+             ya1=ya2=ya3=ya4=ya5=ya6=0.5;
+
+             x1=-150;
+             y1=30;
+             r1=8;//(Math.pow(y1,0.5))*2;
+             y01=y1+(105/40*r1);
+             xa1=0.4;
+             x2=1050;
+             y2=100;
+             r2=12;//(Math.pow(y2,0.5))*2;
+             y02=y2+(105/40*r2);
+             xa2=0.4;
+             x3=680;
+             y3=180;
+             r3=8;//(Math.pow(y3,0.5))*2;
+             y03=y3+(105/40*r3);
+             xa3=0.5;
+             x4=(Math.random()*350)+50;
+             y4=(Math.random()*150)+200;
+             r4=13;//(Math.pow(y4,0.5))*2;
+             y04=y4+(105/40*r4);
+             xa4=0.5;
+             x5=(Math.random()*350)+500;
+             y5=(Math.random()*140)+210;
+             r5=13;//(Math.pow(y5,0.5))*2;
+             y05=y5+(105/40*r5);
+             xa5=0.5;
+             x6=(Math.random()*350)+50;
+             y6=(Math.random()*50)+400;
+             r6=20;//(Math.pow(y6,0.5))*2;
+             y06=y6+(105/40*r6);
+             xa6=0.5;
+             x7=(Math.random()*350)+500;
+             y7=(Math.random()*120)+400;
+             r7=20;//(Math.pow(y6,0.5))*2;
+             y07=y7+(105/40*r7);
+             xa7=0.5;
+             x8=100;
+             y8=480;
+             r8=25;//(Math.pow(y6,0.5))*2;
+             y08=y8+(105/40*r8);
+             xa8=0.5;
+        };
+
+        //start function
+        function startFunction(){
+            document.getElementById('btn0').style.display='none';
+            document.getElementById('btn1').innerHTML='START';
+            document.getElementById('btn2').innerHTML='START';
+            document.getElementById('btn3').innerHTML='START';
+            document.getElementById('btn4').innerHTML='START';
+            document.getElementById('btn5').innerHTML='START';
+            resetPar1();
+            Gcount = 0;
+            Bcount = 0;
+            missCount = 0;
+            level = 1;
+            lives = 3;
+            levelInd = 0;
+            lifeInd = 0;
+            run = setInterval(draw,5);
+        };
+
+        //general restart func
+        function reStart(){
+            if(lifeInd==1){
+                lives-=1;
+                lifeInd=0;
+            }
+            levelInd=0;
+            missCount = 0;
+            Gcount = 0;
+        }
+        //restart level 1 function
+        function reStart1(){
+            reStart()
+            document.getElementById('btn1').style.display='none';
+            resetPar1();
+        };
+        //restart level Two function
+        function reStart2(){
+            reStart()
+            document.getElementById('btn2').style.display='none';
+            resetPar2();
+        };
+        //restart level Three function
+        function reStart3(){
+            reStart()
+            document.getElementById('btn3').style.display='none';
+            resetPar3();
+        };
+        //restart level Four function
+        function reStart4(){
+            reStart()
+            document.getElementById('btn4').style.display='none';
+            resetPar4();
+        };
+        
+        winLose('LEVEL 1',335,150);
+
+        //start of interval function
+        function draw(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+
+            if (lives<1) {
+                if(levelInd==1){
+                    document.getElementById('btn6').style.display='inline-block';
+                    document.getElementById('btn7').style.display='inline-block';
+                    document.getElementById('btn8').style.display='inline-block';
+                    document.getElementById('btn0').innerHTML='TRY AGAIN';
+                    winLoseBlack('GAME OVER',277,150);
+                    clearInterval(run);
+                }
+                else if(levelInd==2){
+                    winLoseBlue('YOU WIN!!',290,150);
+                    clearInterval(run);
+                    document.getElementById('btn6').style.display='inline-block';
+                    document.getElementById('btn7').style.display='inline-block';
+                    document.getElementById('btn8').style.display='inline-block';
+                    document.getElementById('btn0').innerHTML='START OVER';
+                }  
+            }
+            else if(level==1 && lives>0){
+                if(levelInd==0){
+                    if(missCount>10 && lives>1){
+                        resetPar1();
+                        levelInd=1;
+                        lifeInd=1;
+                        document.getElementById('btn1').style.display='inline';
+                        document.getElementById('btn1').innerHTML='TRY AGAIN';
+                    }
+                    else if (missCount>10 && lives==1){
+                        resetPar1();
+                        lives=0;
+                        levelInd=1;
+                    }
+                    else if(Gcount<41){
+                        level1();
+                    }
+                    else if(Gcount>40){
+                        resetPar1();
+                        document.getElementById('btn2').style.display='inline';
+                        level+=1;
+                        levelInd=1;
+                    }
+                }
+                else if(levelInd==1){
+                    winLose('LEVEL 1',335,150);
+                }
+            }
+            else if(level==2 && lives>0){
+                if(levelInd==0){
+                    if(missCount>10 && lives>1){
+                        resetPar2();
+                        levelInd=1;
+                        lifeInd=1;
+                        document.getElementById('btn2').style.display='inline';
+                        document.getElementById('btn2').innerHTML='TRY AGAIN';
+                    }
+                    else if (missCount>10 && lives==1){
+                        resetPar2();
+                        lives=0;
+                        levelInd=1;
+                    }
+                    else if(Gcount<61){
+                        level2();
+                    }
+                    else if(Gcount>60){
+                        resetPar2();
+                        document.getElementById('myCanvas').style.background='#2196F3';
+                        //document.getElementById('myCanvas').style.background='rgb(9, 146, 180)';
+                        document.getElementById('btn3').style.display='inline';
+                        level+=1;
+                        levelInd=1;
+                    }
+                }
+                else if(levelInd==1){
+                    winLose('LEVEL 2',325,150);
+                }
+            }
+            else if(level==3 && lives>0){
+                if(levelInd==0){
+                    if(missCount>10 && lives>1){
+                        resetPar3();
+                        levelInd=1;
+                        lifeInd=1;
+                        document.getElementById('btn3').style.display='inline';
+                        document.getElementById('btn3').innerHTML='TRY AGAIN';
+                    }
+                    else if (missCount>10 && lives==1){
+                        resetPar3();
+                        lives=0;
+                        levelInd=1;
+                    }
+                    else if(Gcount<61){
+                        level3();
+                    }
+                    else if(Gcount>60){
+                        resetPar3();
+                        document.getElementById('myCanvas').style.background='rgb(9, 180, 32)';
+                        document.getElementById('btn4').style.display='inline';
+                        level+=1;
+                        levelInd=1;
+                    }
+                }
+                else if(levelInd==1){
+                    winLoseBlue('LEVEL 3',325,150);
+                }
+            }
+            else if(level==4 && lives>0){
+                if(levelInd==0){
+                    if(missCount>10 && lives>1){
+                        resetPar4();
+                        levelInd=1;
+                        lifeInd=1;
+                        document.getElementById('btn4').style.display='inline';
+                        document.getElementById('btn4').innerHTML='TRY AGAIN';
+                    }
+                    else if (missCount>10 && lives==1){
+                        resetPar4();
+                        lives=0;
+                        levelInd=1;
+                    }
+                    else if(Gcount<61){
+                        level4();
+                    }
+
+                    /*//Next Level
+                    else if(Gcount>140){
+                        resetPar4();
+                        document.getElementById('myCanvas').style.background='#2196F3';
+                        document.getElementById('btn5').style.display='inline';
+                        level+=1;
+                        levelInd=1;
+                    }*/
+
+                    //End Game 
+                    else if(Gcount>0){
+                        resetPar4();
+                        lives=0;
+                        level=0;
+                        levelInd=2;
+                    }
+                }
+                else if(levelInd==1){
+                    winLose('LEVEL 4',325,150);
+                }
+            }
+            score(Gcount,20,30);
+            missedScore(missCount,140,30);
+            livesCount(lives,750,30);
+        };
+    </script>
+    <script language="javascript" src="catGameDrawFunctions.js" type="text/javascript"></script>
+    <script language="javascript" src="catGameLevel1.js" type="text/javascript"></script>
+    <script language="javascript" src="catGameLevel2.js" type="text/javascript"></script>
+    <script language="javascript" src="catGameLevel3.js" type="text/javascript"></script>
+    <script language="javascript" src="catGameLevel4.js" type="text/javascript"></script>
+    <br>
+    <div>
+        <a style="font-size: 22px; color: rgb(255, 255, 255); text-decoration: none;" href="GamePage.html">Back to website</a>   
+    </div>
+</body>
+
+</html>

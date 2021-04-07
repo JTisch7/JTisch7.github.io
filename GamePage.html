@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="SMstyleSheet.css">
+</head>
+
+<body>
+    <div class='headingContainer fade'>
+        <h1>
+            <span id="titleMowglie">
+                Mowglie
+            </span>
+            <span id='titleAnd'>
+                &
+            </span>
+            <span id='titleSasha'>
+                Sasha
+            </span>
+          
+        </h1>
+    </div>
+    <div class="topNav">
+        <a href="LifestylePage.html">Lifestyle</a> 
+        <a href="HealthPage.html">Health</a>
+        <a id="current" href="GamePage.html">Game</a>      
+    </div>
+    <div class=mainContainer>
+        <div class="sidenav">
+            <a href="catGameUpdated.html">Play Now</a>
+        </div>
+
+        <div class="main">
+            <p class="lifestyleTitle">The Puuurrrfect Game for Meeoow</p>
+            <div style="background-color: rgb(255, 255, 255); margin-top: 0px; height: 10px;"></div>
+            <p class = "slideshow">Beware of the quick kitties!</p>
+            <br>
+
+            <canvas id="myCanvas" width="600" height="300"></canvas>
+            <br><br><br>
+            <div class = "gamelink">
+            <a href="catGameUpdated.html">PLAY IF YOU DARE</a>    
+            </div>
+            <br><br><br><br><br><br>
+        </div>
+    </div> 
+        <script>
+            
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+            var x1 = 350;
+            var y1 = 105;
+            var y2 = 250;
+            var y3 = 530;
+            var y4 = 130
+            var x = 350; 
+            var y = 100;
+            var r = 40;
+            var dy = 1;
+            var dy2 = 1;
+            var dy3 = 1;
+            var dy4 = 1;
+            
+            function draw(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                Hole(150,100,40);
+                Hole(290,210,20);
+                Hole(400,80,25);
+                drawCat(150,y1,40);
+                drawCat(290,y2,20);
+                drawCat(400,y4,25);
+                hider(150,100,40);
+                hider(290,210,20);
+                hider(400,80,25);
+
+                if(y1 < 105){
+                    dy=-dy;
+                }
+                else if(y1 > 210){
+                    dy=-dy;
+                }
+                y1 -= dy;
+
+                if(y2 < 210){
+                    dy2=-dy2;
+                }
+                else if(y2 > 263){
+                    dy2=-dy2;
+                }
+                y2 -= dy2;
+
+                if(y4 < 80){
+                    dy4=-dy4;
+                }
+                else if(y4 > 147){
+                    dy4=-dy4;
+                }
+                y4 -= dy4;
+
+            };
+
+            var interval = setInterval(draw,20);
+
+        </script>   
+    <script language="javascript" src="catGameDrawFunctions.js" type="text/javascript"></script>
+</body>
+
+</html>
