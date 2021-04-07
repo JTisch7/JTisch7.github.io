@@ -1,0 +1,50 @@
+body {
+    /*background-color: rgb(159, 214, 247);*/
+    background-color: rgb(28, 221, 235);
+}
+#myCanvas {
+    background: rgb(9, 180, 32);
+    /*border-style: double;*/
+    border-style: solid;
+    border-color: rgb(214, 34, 34);
+    border-width: 15px;
+}
+.startBtn {
+    background: rgb(159, 214, 247);
+    color: rgb(50, 98, 255);
+    font-size: 30px;
+    position: absolute;
+    height: 60px;
+    width: 220px;
+    margin-top: 250px;
+    margin-left: 350px;
+    text-align: center;
+    
+}
+.levelBtn {
+    background: rgb(159, 214, 247);
+    color: rgb(50, 98, 255);
+    font-size: 30px;
+    position: absolute;
+    height: 60px;
+    width: 220px;
+    margin-top: 250px;
+    margin-left: 350px;
+    text-align: center;
+    display: none;
+    
+}
+.difBtn {
+    display: inline-block;
+}
+.difBtnEasy {
+    margin-left: 100px;
+    display: inline-block;
+}
+.difBtnHard {
+    margin-left: 600px;
+    display: inline-block;
+}
+body {
+    text-align: center;
+}
