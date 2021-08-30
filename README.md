@@ -1,1 +1,0 @@
-This is a website for my cats I created to gain an understanding of HTML, CSS, and JavaScript.  All files need to be in the same folder.  Home page is at 'index.html'.  You can also access a cat game on the game page of this website by clicking 'PLAY IF YOU DARE' or 'Play now'.  You can also access this website at https://breadboy0007.github.io/index.html
