@@ -11679,7 +11679,8 @@ body {
   padding: 30px; 
   border-style: solid; 
   border-color: gray; 
-  border-width: 4px;
+  border-width: 3px;
+  border-radius: 25px;
 }
 .bord img {
   border-style: solid; 
