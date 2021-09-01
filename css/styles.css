@@ -11674,3 +11674,15 @@ body {
 .footer {
   padding: 5rem 0;
 }
+.bord {
+  padding-bottom: 50px; 
+  padding: 30px; 
+  border-style: solid; 
+  border-color: gray; 
+  border-width: 4px;
+}
+.bord img {
+  border-style: solid; 
+  border-color: gray; 
+  border-width: 3px;
+}
