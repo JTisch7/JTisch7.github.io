@@ -39,7 +39,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">Jonathan Tischler</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Project Portfolio</h2>
+                        <br>
                         <a class="btn btn-primary" href="#about">Take a Look</a>
                     </div>
                 </div>
@@ -64,37 +64,36 @@
             </div>
         </section>
         <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <h2 class="text-black-50 mb-4 text-center" style="padding-bottom: 40px;"><b>Projects</b></h2>
+        <section class="projects-section" id="projects" style="background-color:rgb(160, 224, 252); background-attachment: fixed;">
+            <h1 class="text-white mb-4 text-center" style="padding-bottom: 40px;"><b>Projects</b></h1>
             <div class="container px-4 px-lg-5">
                 <!-- Project 1 -->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center" style="padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray;">
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center bg-white" style="padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray; border-width: 6px;">
                     <div class="col-xl-8 col-lg-7"><a href="http://newstest-env.eba-vgkkrtjs.us-west-1.elasticbeanstalk.com/" 
                         target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/newsSent6.png" 
-                        alt="..." /></a></div>
+                        alt="..." style="border-style: solid; border-color: gray; border-width: 6px;" /></a></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="text-lg-left" style='margin-left: 30px; margin-right: 30px;'>
                             <h4 class='text-center text-black-50'><b>Sentiment Analysis App</b></h4>
                             <p class="text-black-50 mb-0">
                                 <ul>
-                                    <li>This application utilizes a fine-tuned BERT model to perform sentiment analysis on financial 
+                                    <li>This application uses a fine-tuned BERT model to perform sentiment analysis on financial 
                                         news data, combines it with stock price data, and creates enlightening visualizations from the results</li>
-                                    <li>Used AWS SageMaker to host the endpoint for the model and used AWS Lambda and AWS API Gateway 
-                                        to invoke the endpoint</li>
-                                    <li>Built the application around the model using Elastic Beanstalk, Python, Flask, JavaScript, 
-                                        and multiple APIs</li>
+                                    <li>Used SageMaker to host an endpoint for the model and used Lambda and API Gateway to invoke the endpoint</li>
                                     <li>View application <a href="http://newstest-env.eba-vgkkrtjs.us-west-1.elasticbeanstalk.com/" 
                                         target="_blank" rel="noreferrer noopener">HERE</a> and code 
                                         <a href="https://github.com/JTisch7/NewsAnalysisApp" 
                                         target="_blank" rel="noreferrer noopener">HERE</a></li>
                                 </ul> 
+                                <p><b>Technologies : TensorFlow, Keras, Hugging Face Transformers, SageMaker, Lambda, API Gateway, 
+                                    Elastic Beanstalk, Python, Flask, JavaScript, jQuery, AnyChart, NGINX</b></p>
                             </p>
                         </div>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center " style="flex-direction: row-reverse; padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray;">
-                    <div class="col-xl-8 col-lg-7"><a href="http://secret-lake-95487.herokuapp.com/" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/ML2.png" alt="..." /></a></div>
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center bg-white" style="flex-direction: row-reverse; padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray; border-width: 6px;">
+                    <div class="col-xl-8 col-lg-7"><a href="http://secret-lake-95487.herokuapp.com/" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/ML2.png" alt="..." style="border-style: solid; border-color: gray; border-width: 6px;" /></a></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="text-lg-left" style='margin-left: 30px; margin-right: 30px;'>
                             <h4 class='text-center text-black-50'><b>ML-Backed Stock App</b></h4>
@@ -104,20 +103,19 @@
                                         classic models, ensembles, charts, and consistently updated data</li>
                                     <li>Built an API to facilitate interactions between the frontend, model pipelines, and 
                                         PostgreSQL database</li>
-                                    <li>Developed and deployed using Python, Flask, Heroku, a Waitress WSGI server, and a 
-                                        PostgreSQL database</li>
                                     <li>View application <a href="http://secret-lake-95487.herokuapp.com/" target="_blank" 
                                         rel="noreferrer noopener">HERE</a> (takes about 30 seconds to startup due to Heroku's free tier) 
                                         and code <a href="https://github.com/JTisch7/StockApp" 
                                         target="_blank" rel="noreferrer noopener">HERE</a></li>
                                 </ul> 
+                                <p><b>Technologies : Python, Scikit-Learn, Flask, Heroku, Waitress, PostgreSQL, Psycopg2</b></p>
                             </p>                        
                         </div>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center" style="padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray;">
-                    <div class="col-xl-8 col-lg-7"><a href="https://github.com/JTisch7/StockPrice_FinancialText_Analysis" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/modelPic.png" alt="..." style="border-style: solid;" /></a></div>
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center bg-white" style="padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray; border-width: 6px;">
+                    <div class="col-xl-8 col-lg-7"><a href="https://github.com/JTisch7/StockPrice_FinancialText_Analysis" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/modelPic.png" alt="..." style="border-style: solid; border-color: gray; border-width: 6px;"" /></a></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="text-lg-left" style='margin-left: 30px; margin-right: 30px;'>
                             <h4 class='text-center text-black-50'><b>Financial Text / Stock Price Analysis</b></h4>
@@ -134,13 +132,15 @@
                                     </li>
                                     <li>View code <a href="https://github.com/JTisch7/StockPrice_FinancialText_Analysis" target="_blank" rel="noreferrer noopener">HERE</a></li>
                                 </ul> 
+                                <p><b>Technologies : TensorFlow, Keras, TensorFlow Hub, Hugging Face Transformers, Python, Scikit-Learn, 
+                                    Matplotlib, NLP, NLU</b></p>
                             </p>                        
                         </div>
                     </div>
                 </div>
                 <!-- Project 4 -->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center " style="flex-direction: row-reverse; padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray;">
-                    <div class="col-xl-8 col-lg-7"><a href="http://54.176.54.177/index.html" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/cat1.png" alt="..." /></a></div>
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center bg-white" style="flex-direction: row-reverse; padding-bottom: 50px; padding: 30px; border-style: solid; border-color: gray; border-width: 6px;">
+                    <div class="col-xl-8 col-lg-7"><a href="http://54.176.54.177/index.html" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/cat1.png" alt="..." style="border-style: solid; border-color: gray; border-width: 6px;" /></a></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="text-lg-left" style='margin-left: 30px; margin-right: 30px;'>
                             <h4 class='text-center text-black-50'><b>Cat Website</b></h4>
@@ -151,19 +151,20 @@
                                     <li>The site is deployed on AWS using Docker, ECS, and Fargate</li>
                                     <li>The code is not optimal and far from perfect, but the project gave me a general understanding 
                                         of web development</li>
-                                    <li>I did not use bootstrap, but I plan on doing a quick update at some point.  For now 
-                                        it is best to view the website on a PC or large-ish tablet</li>
+                                    <li>I plan on doing a quick update at some point, but for now it is not responsive, so it 
+                                        is best to view the website on a PC or tablet</li>
                                     <li>View website <a href="http://54.176.54.177/index.html" target="_blank" 
                                         rel="noreferrer noopener">HERE</a> and code <a href="https://github.com/JTisch7/CatSite_WithDockerFile" 
                                         target="_blank" rel="noreferrer noopener">HERE</a></li>
                                 </ul> 
+                                <p><b>Technologies : docker, dockerhub, NGINX, AWS ECS, AWS Fargate, JavaScript, CSS, HTML</b></p>
                             </p>                        
                         </div>
                     </div>
                 </div>
                 <!-- Project 5 -->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center " style="padding: 30px; border-style: solid; border-color: gray;">
-                    <div class="col-xl-8 col-lg-7"><a href="http://54.176.54.177/catGameUpdated.html" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/catGame.png" alt="..." /></a></div>
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center bg-white" style="padding: 30px; border-style: solid; border-color: gray; border-width: 6px;">
+                    <div class="col-xl-8 col-lg-7"><a href="http://54.176.54.177/catGameUpdated.html" target="_blank" rel="noreferrer noopener"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/catGame.png" alt="..." style="border-style: solid; border-color: gray; border-width: 6px;" /></a></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="text-lg-left" style='margin-left: 30px; margin-right: 30px;'>
                             <h4 class='text-center text-black-50'><b>Cat Game</b></h4>
@@ -178,6 +179,7 @@
                                         rel="noreferrer noopener">HERE</a> and code <a href="https://github.com/JTisch7/CatGame" 
                                         target="_blank" rel="noreferrer noopener">HERE</a></li>
                                 </ul> 
+                                <p><b>Technologies : JavaScript, HTML, CSS</b></p>
                             </p>                        
                         </div>
                     </div>

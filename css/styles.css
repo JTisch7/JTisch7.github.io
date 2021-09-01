@@ -177,7 +177,7 @@ address {
 
 ol,
 ul {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 ol,
@@ -238,7 +238,7 @@ sup {
 }
 
 a {
-  color: #64a19d;
+  color: #0000EE;
   text-decoration: underline;
 }
 a:hover {
